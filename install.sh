@@ -7,10 +7,10 @@ echo "Verificando tipo de boot"
 if [ -d "/sys/firmware/efi/efivars" ]
 then
     echo "Detectado EFI." 
-    TIPO_BOOT = 1
+    TIPO_BOOT=1
 else
     echo "Detectado BIOS."
-    TIPO_BOOT = 0
+    TIPO_BOOT=0
 fi
 
 # Habilitando NPT
