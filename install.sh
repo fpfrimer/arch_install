@@ -4,6 +4,8 @@ echo "Iniciando instalação..."
 
 # Verificar tipo de boot BIOS ou EFI
 echo "Verificando tipo de boot"
+echo
+
 if [ -d "/sys/firmware/efi/efivars" ]
 then
     echo "Detectado EFI." 
@@ -14,6 +16,7 @@ else
 fi
 
 # Habilitando NPT
+echo "Habilitando NPT"
 timedatectl set-ntp true
 
 # Procura os discos do computador
@@ -30,7 +33,7 @@ done < <(find "/dev/" -regex '/dev/sd[a-z]\|/dev/vd[a-z]\|/dev/hd[a-z]' -print0)
 echo
 echo "Listando discos..."
 echo
-echo "Opção\t{Disco}\t{Nome}\t{Tamanho}"
+echo -e "Opção\tDisco\tNome\tTamanho"
 echo
 
 for i in `seq 0 $((${#disk[@]}-1))`; do
