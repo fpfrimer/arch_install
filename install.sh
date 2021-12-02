@@ -27,8 +27,11 @@ while IFS= read -r -d $'\0' device; do
     size+=("`cat "/sys/class/block/$device/size"`")
 done < <(find "/dev/" -regex '/dev/sd[a-z]\|/dev/vd[a-z]\|/dev/hd[a-z]' -print0)
 
-echo "Escolha o disco para a instalação:"
-echo "Disco\tNome\tTamanho"
+echo
+echo "Listando discos..."
+echo
+echo "Opção\t{Disco}\t{Nome}\t{Tamanho}"
+echo
 
 for i in `seq 0 $((${#disk[@]}-1))`; do
     echo -e "($i)\t${disk[$i]}\t${name[$i]}\t${size[$i]}"
