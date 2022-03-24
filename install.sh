@@ -33,8 +33,6 @@ done < <(find "/dev/" -regex '/dev/sd[a-z]\|/dev/vd[a-z]\|/dev/hd[a-z]' -print0)
 echo
 echo "Listando discos..."
 echo
-echo -e "Opção\tDisco\tNome\tTamanho"
-echo
 
 for i in `seq 0 $((${#disk[@]}-1))`; do
     echo -e "($i)\t${disk[$i]}\t${name[$i]}\t${size[$i]}"
